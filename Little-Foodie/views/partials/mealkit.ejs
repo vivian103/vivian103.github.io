@@ -1,0 +1,20 @@
+<div class="card">
+    <img src="/images/meal-kits-pics/<%= mealkit.imageUrl %>" class="card-img-top">
+    <div class="card-body">
+        <!-- Display the category badge on home.ejs -->
+        <div class="pb-3">
+        <% if (displayBadge) { %>
+            <span class="badge text-bg-secondary"><%= mealkit.category %></span>
+        <% } %>
+        </div>
+        <h5 class="card-title"><%= mealkit.title %></h5>   
+        <p class="card-text text-truncate"><%= mealkit.includes %></p>
+        <p class="card-text">$<%= mealkit.price %></p>
+        <!-- Display the Add button in each meal kits -->
+        <% if (userType === "customer") { %>
+            <div class="d-flex justify-content-end">
+                <a href="/cart/add-mealkit/<%- mealkit._id %>"><button type="button" class="btn btn-success">+ Add</button></a>
+            </div>
+        <% } %>
+    </div>
+</div>

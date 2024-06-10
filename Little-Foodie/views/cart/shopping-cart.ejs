@@ -1,0 +1,87 @@
+<section id="cart" class="bg-gray">
+    <div class="container pb-5">
+        <p>&nbsp;</p>
+        <div class="alert alert-light" role="alert">
+            <h4>Welcome to your shopping cart!</h4>
+            <p>If you'd like to increase the quantity of any item, simply add it again.<br /> 
+                To remove items from your cart, use the 'Remove' button next to each item. <br />
+                When you're ready to make your purchase, click 'Place order' to confirm your selections.
+            </p>
+        </div>
+
+        <% if (typeof viewModel.message === "string" && viewModel.message.length > 0) { %>
+            <div class="alert alert-warning" role="alert">
+                <p><%= viewModel.message %></p>
+            </div>
+        <% } %>
+
+        <div class="row">
+            <div class="card bg-transparent border-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Items</th>
+                            <th scope="col">Details</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% if (viewModel.mealKits.length > 0) { %>
+                                <% viewModel.mealKits.forEach(function(item) { %>
+                                <% const mealKit = item.mealKit; %>
+                                <tr>
+                                    <td width="150"><img src="/images/meal-kits-pics/<%- mealKit.imageUrl %>" alt="<%= mealKit.title %>" width="150"></td>
+                                    <td><%= mealKit.title %><br /><br />
+                                        <%= mealKit.includes %>
+                                    </td>
+                                    <td>$<%= mealKit.price %></td>
+                                    <td><%= item.qty %></td>
+                                    <td>$<%- (mealKit.price * item.qty).toFixed(2) %></td>
+                                    <td><a href="/cart/remove-mealkit/<%- mealKit._id %>"><button type="button" class="btn btn-success">Remove</button></a></td>
+                                </tr>
+                                <% }); %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="6">No items in the shopping cart.</td>
+                                    </tr>
+                                <% } %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-3 p-3">
+                <div class="card bg-transparent border-0">
+                    <h5>Checkout information</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th scope="row">Subtotal:</th>
+                                <td>$<%- (viewModel.cartTotal).toFixed(2) %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tax (10%):</th>
+                                <td>$<%- (viewModel.cartTotal * 0.1).toFixed(2) %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grand total:</th>
+                                <td>$<%- (viewModel.cartTotal * 1.1).toFixed(2) %></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <% if (viewModel.mealKits.length > 0) { %>
+            <p><a href="/cart/check-out"><button type="button" class="btn btn-success">Place order</button></a></p>
+            <% } %>
+        </div>
+    </div>
+</section>

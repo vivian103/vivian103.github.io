@@ -1,0 +1,19 @@
+<section id="meal-kits-by-category" class="bg-gray">
+    <div class="container pb-5">
+        <div class="row">
+            <% menuData.forEach(function(category) { %>
+                <div class="col-md-12">
+                    <h2 class="pt-5"><%= category.categoryName %></h2>
+                    <hr />
+                    <div class="row">
+                        <% category.mealkits.forEach(function(mealkit) { %>
+                            <div class="col-12 col-sm-6 col-md-4 p-3">
+                                <%- include("../partials/mealkit.ejs", { mealkit: mealkit, displayBadge: false }) %>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>

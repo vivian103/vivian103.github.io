@@ -1,0 +1,57 @@
+<section id="log-in" class="bg-gray">
+    <div class="container-sm pb-5 pt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                    <h2 class="pt-5 pb-5">Log in your account</h2>
+                </div>
+                    <div class="row">
+                        <form class="pb-5 pt-3" method="post" action="/log-in">
+                            <div class="d-flex justify-content-center">
+                                <div class="mb-3 col-sm-4">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" id="email" name="email" value="<%= values.email %>">
+                                    <!-- show error message -->
+                                    <% if (validationMsg.email) { %>
+                                        <span style="color: red;"><%= validationMsg.email %></span><br />
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="mb-3 col-sm-4">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" id="password" name="password" value="<%= values.password %>">
+                                    <!-- show error message -->
+                                    <% if (validationMsg.password) { %>
+                                        <span style="color: red;"><%= validationMsg.password %></span><br />
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="mb-3 col-sm-4 d-flex align-items-center">
+                                    <p class="mb-4 me-3">You are a</p>
+                                    <div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="customer" name="userType" value="customer" <%= values.userType === 'customer' ? 'checked' : '' %>>
+                                            <label class="form-check-label" for="customer">Customer</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="clerk" name="userType" value="clerk" <%= values.userType === 'clerk' ? 'checked' : '' %>>
+                                            <label class="form-check-label" for="clerk">Data entry clerk</label>
+                                        </div>
+                                        <!-- show error message -->
+                                <% if (validationMsg.userType) { %>
+                                    <span style="color: red;"><%= validationMsg.userType %></span><br />
+                                <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center pb-5 pt-5">
+                                <button type="submit" class="btn btn-success">Log in</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>

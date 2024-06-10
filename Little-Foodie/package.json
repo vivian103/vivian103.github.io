@@ -1,0 +1,29 @@
+{
+  "name": "web322-assignment",
+  "version": "1.0.0",
+  "description": "LittleFoodie delivers healthy meal kits to support your kid's everyday needs.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "LittleFoodie",
+    "healthy",
+    "meal",
+    "busy parents",
+    "school lunch"
+  ],
+  "author": "Yi Man Leung",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.5.0",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.2.1"
+  }
+}

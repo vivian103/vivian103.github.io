@@ -1,0 +1,45 @@
+<section id="delete-confirmation" class="bg-gray">
+    <div class="container-sm pb-5 pt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-center"></div>
+                    <h4 class="pt-4">Are you sure you want to delete this meal kit item?</h4>
+                    <form class="pb-5 pt-3" method="post" action="/mealkits/remove/<%= mealKit._id %>" >
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a href="/mealkits/list" class="btn btn-secondary">No</a>
+                    </form>
+                </div>    
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Picture</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Includes</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Cooking</th>
+                            <th scope="col">Servings</th>
+                            <th scope="col">Featured</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="150"><img src="/images/meal-kits-pics/<%- mealKit.imageUrl %>" alt="<%= mealKit.title %>" width="150"></td>
+                                <td><%= mealKit.title %></td>
+                                <td><%= mealKit.includes %></td>
+                                <td><%= mealKit.description %></td>
+                                <td><%= mealKit.category %></td>
+                                <td><%= mealKit.price %></td>
+                                <td><%= mealKit.cookingTime %></td>
+                                <td><%= mealKit.servings %></td>
+                                <td><%= mealKit.featuredMealKit %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
